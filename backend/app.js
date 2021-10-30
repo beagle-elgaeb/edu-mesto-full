@@ -30,6 +30,12 @@ const cardRouter = require("./routes/cards");
 
 app.use(requestLogger);
 
+app.get("/crash-test", () => {
+  setTimeout(() => {
+    throw new Error("Сервер сейчас упадёт");
+  }, 0);
+});
+
 app.post("/signup", valid.validNewUser, createUser);
 app.post("/signin", valid.validLogin, login);
 
