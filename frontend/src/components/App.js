@@ -47,6 +47,14 @@ function App({ history }) {
   const { pathname } = useLocation();
 
   React.useEffect(() => {
+    const auth = localStorage.getItem("auth");
+
+    if (!auth) {
+      return;
+    }
+
+    loadProfile();
+
     Promise.all([api.getProfileData(), api.getInitialCards()])
       .then(([profile, cards]) => {
         setCurrentUser(profile);
@@ -55,15 +63,6 @@ function App({ history }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-
-  React.useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      loadProfile(token);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleEditAvatarClick() {
@@ -173,9 +172,9 @@ function App({ history }) {
       });
   }
 
-  function loadProfile(token) {
+  function loadProfile() {
     auth
-      .getContent(token)
+      .getContent()
       .then((res) => {
         if (res) {
           setUserData(res.data.email);
@@ -193,13 +192,13 @@ function App({ history }) {
 
     auth
       .authorize(values)
-      .then((token) => {
-        if (token) {
-          localStorage.setItem("token", token);
-          handleLogin(token);
-          setIsLogined(false);
-          history.push("/content");
-        }
+      .then(() => {
+
+        localStorage.setItem("auth", "1");
+        handleLogin();
+        setIsLogined(false);
+        history.push("/content");
+
       })
       .catch(() => {
         showResult(false);
@@ -228,12 +227,12 @@ function App({ history }) {
     }
   }
 
-  function handleLogin(token) {
-    loadProfile(token);
+  function handleLogin() {
+    loadProfile();
   }
 
   function handleLogout() {
-    localStorage.removeItem("token");
+    localStorage.removeItem("auth");
     setLoggedIn(false);
   }
 

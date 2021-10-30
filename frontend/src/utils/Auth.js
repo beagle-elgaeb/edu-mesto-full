@@ -17,18 +17,11 @@ export function authorize({ email, password }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  })
-    .then(handleResult)
-    .then((data) => {
-      if (data.token) {
-        return data.token;
-      } else {
-        return;
-      }
-    });
+  }).then(handleResult);
+
 }
 
-export function getContent(token) {
+export function getContent() {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
