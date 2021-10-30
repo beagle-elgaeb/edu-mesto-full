@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const { errors } = require("celebrate");
 const cookieParser = require("cookie-parser");
@@ -10,6 +11,8 @@ const NotFoundError = require("./errors/not-found-err");
 
 const { PORT = 3000 } = process.env;
 const app = express();
+
+app.use(cors({ origin: "https://beagle-elgaeb.nomoredomains.rocks/" }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
