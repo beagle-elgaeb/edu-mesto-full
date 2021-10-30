@@ -3,7 +3,7 @@ import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import api from "../utils/Api";
+import * as api from "../utils/Api";
 import * as auth from "../utils/Auth";
 
 import ProtectedRoute from "./ProtectedRoute";

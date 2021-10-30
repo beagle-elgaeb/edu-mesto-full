@@ -6,13 +6,18 @@ const cookieParser = require("cookie-parser");
 const valid = require("./middlewares/validation");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 require("dotenv").config();
-
 const NotFoundError = require("./errors/not-found-err");
 
-const { PORT = 3000 } = process.env;
+const { NODE_ENV, PORT = 3000 } = process.env;
 const app = express();
 
-app.use(cors({ origin: "https://beagle-elgaeb.nomoredomains.rocks/" }));
+app.use(
+  cors(
+    NODE_ENV === "production"
+      ? { origin: "https://beagle-elgaeb.nomoredomains.rocks/" }
+      : {},
+  ),
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
