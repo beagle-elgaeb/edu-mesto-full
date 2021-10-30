@@ -2,7 +2,7 @@
 
 ## Седьмая учебная работа Никоновой Евгении для Яндекс.Практикум
 
-_[Ссылка на приложение](https://beagle-elgaeb.github.io/mesto-react-auth/)_
+_[Ссылка на приложение](https://beagle-elgaeb.nomoredomains.rocks)_
 
 <p>
   <a href="https://developer.mozilla.org/ru/docs/Web/CSS"><img src="readme/icon-css3.svg" alt="CSS3"></a>
@@ -42,9 +42,9 @@ _[Ссылка на приложение](https://beagle-elgaeb.github.io/mesto-
 - лайф валидация (with _[Formik](https://formik.org/)_ and _[Yup](https://github.com/jquense/yup)_);
 - используется css-in-js библиотека _[styled-components](https://styled-components.com/)_;
 - проработан UX (при отправке данных на сервер меняется состояние кнопки / появляются loader'ы);
-- [страница задеплоена](https://beagle-elgaeb.github.io/mesto-react-auth/);
-- [сервер](https://beagle-elgaeb.github.io/mesto-react-auth/);
-- [ip сервера](https://beagle-elgaeb.github.io/mesto-react-auth/);
+- [страница задеплоена](https://beagle-elgaeb.nomoredomains.rocks);
+- [сервер](https://api.beagle-elgaeb.nomoredomains.work);
+- публичный ip сервера: 178.154.205.40
 - страница адаптируется с контрольными точками: 320px, 680px, 980px; 1280px.
 
 ### Задачи учебного проекта
@@ -54,7 +54,8 @@ _[Ссылка на приложение](https://beagle-elgaeb.github.io/mesto-
 
 ### Планы на дальнейшую реализацию проекта
 
-Нет
+- Добавить запрос, получающий данные о пользователе, орубликовавшем карточку, вставлять данные рядом с названием города
+- Добавить запрос на разлогиневание с удалением куки
 
 ### Как использовать
 
