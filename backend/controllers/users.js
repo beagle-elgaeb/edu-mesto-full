@@ -72,7 +72,9 @@ module.exports.login = async (req, res, next) => {
     );
 
     res
-      .cookie("jwt", token, { httpOnly: true, maxAge: 7 * 24 * 3600 * 1000 })
+      .cookie("jwt", token, {
+        secure: true, sameSite: "none", httpOnly: true, maxAge: 7 * 24 * 3600 * 1000,
+      })
       .send({ message: "Авторизация выполнена" });
   } catch (err) {
     next(err);

@@ -5,17 +5,18 @@ const jsonHeaders = {
 };
 
 export function getInitialCards() {
-  return fetch(`${BASE_URL}/cards`, {}).then(handleResult);
+  return fetch(`${BASE_URL}/cards`, { credentials: "include", }).then(handleResult);
 }
 
 export function getProfileData() {
-  return fetch(`${BASE_URL}/users/me`, {}).then(handleResult);
+  return fetch(`${BASE_URL}/users/me`, { credentials: "include", }).then(handleResult);
 }
 
 export function setAvatar(avatar) {
   return fetch(`${BASE_URL}/users/me/avatar`, {
     method: "PATCH",
     headers: jsonHeaders,
+    credentials: "include",
     body: JSON.stringify({
       avatar: avatar,
     }),
@@ -26,6 +27,7 @@ export function setProfileData(name, about) {
   return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",
     headers: jsonHeaders,
+    credentials: "include",
     body: JSON.stringify({
       name,
       about,
@@ -37,6 +39,7 @@ export function createCard(name, link) {
   return fetch(`${BASE_URL}/cards`, {
     method: "POST",
     headers: jsonHeaders,
+    credentials: "include",
     body: JSON.stringify({
       name,
       link,
@@ -47,20 +50,23 @@ export function createCard(name, link) {
 export function removeCard(id) {
   return fetch(`${BASE_URL}/cards/${id}`, {
     method: "DELETE",
+    credentials: "include",
   }).then(handleResult);
 }
 
 export function likeCard(id) {
-  return fetch(`${BASE_URL}/cards/likes/${id}`, {
+  return fetch(`${BASE_URL}/cards/${id}/likes`, {
     method: "PUT",
     headers: jsonHeaders,
+    credentials: "include",
   }).then(handleResult);
 }
 
 export function unlikeCard(id) {
-  return fetch(`${BASE_URL}/cards/likes/${id}`, {
+  return fetch(`${BASE_URL}/cards/${id}/likes`, {
     method: "DELETE",
     headers: jsonHeaders,
+    credentials: "include",
   }).then(handleResult);
 }
 

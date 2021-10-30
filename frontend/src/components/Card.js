@@ -10,8 +10,8 @@ import buttonLikeActive from "../images/like-active.png";
 
 function Card({ card, onClick, onLikeClick, onDeleteClick }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const isOwn = card.owner._id === currentUser._id;
-  const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  const isOwn = card.owner === currentUser._id;
+  const isLiked = card.likes.some((i) => i === currentUser._id);
 
   return (
     <Item>

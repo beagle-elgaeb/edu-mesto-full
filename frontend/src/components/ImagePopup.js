@@ -21,7 +21,7 @@ function ImagePopup({ card, isOpen, onClose, onKeydown }) {
     <StylePopup.Overlay opened={card} onClick={onClose}>
       <Container onClick={(e) => e.stopPropagation()}>
         <Picture alt="Изображение отсутствует" src={card?.link} />
-        <Title>{`${card?.name} || ${card?.owner.name} (${card?.owner.about})`}</Title>
+        <Title>{`${card?.name}`}</Title>
         <StylePopup.CloseButton type="button" aria-label="Закрыть картинку" onClick={onClose}>
           <StylePopup.CloseButtonIcon src={buttonClosePopup} alt="Закрыть картинку" />
         </StylePopup.CloseButton>

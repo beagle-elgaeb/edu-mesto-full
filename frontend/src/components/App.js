@@ -63,7 +63,8 @@ function App({ history }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loggedIn]);
 
   function handleEditAvatarClick() {
     setEditAvatarPopupOpen(true);
@@ -103,6 +104,7 @@ function App({ history }) {
   }
 
   function handleCardClick(card) {
+    console.log(card)
     setSelectedCard(card);
   }
 
@@ -131,7 +133,7 @@ function App({ history }) {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     setCards((state) => state.map((c) => (c._id === card._id ? { ...c, likeClicked: true } : c)));
 
@@ -177,7 +179,7 @@ function App({ history }) {
       .getContent()
       .then((res) => {
         if (res) {
-          setUserData(res.data.email);
+          setUserData(res.email);
           setLoggedIn(true);
           history.push("/content");
         }
@@ -193,12 +195,10 @@ function App({ history }) {
     auth
       .authorize(values)
       .then(() => {
-
         localStorage.setItem("auth", "1");
-        handleLogin();
+        loadProfile();
         setIsLogined(false);
         history.push("/content");
-
       })
       .catch(() => {
         showResult(false);
@@ -225,10 +225,6 @@ function App({ history }) {
           setIsRegistered(false);
         });
     }
-  }
-
-  function handleLogin() {
-    loadProfile();
   }
 
   function handleLogout() {

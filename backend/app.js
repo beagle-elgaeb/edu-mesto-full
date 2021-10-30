@@ -8,15 +8,11 @@ const { requestLogger, errorLogger } = require("./middlewares/logger");
 require("dotenv").config();
 const NotFoundError = require("./errors/not-found-err");
 
-const { NODE_ENV, PORT = 3000 } = process.env;
+const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(
-  cors(
-    NODE_ENV === "production"
-      ? { origin: "https://beagle-elgaeb.nomoredomains.rocks/" }
-      : {},
-  ),
+  cors({ origin: "https://beagle-elgaeb.nomoredomains.rocks", credentials: true }),
 );
 
 app.use(express.json());
