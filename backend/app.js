@@ -13,7 +13,10 @@ const app = express();
 
 app.use(
   cors(NODE_ENV === "production"
-    ? { origin: "https://beagle-elgaeb.nomoredomains.rocks", credentials: true }
+    ? {
+      origin: ["https://beagle-elgaeb.nomoredomains.rocks", "http://beagle-elgaeb.nomoredomains.rocks"],
+      credentials: true,
+    }
     : {}),
 );
 

@@ -12,7 +12,7 @@ router.use(auth);
 
 router.get("/", getUsers);
 router.get("/me", getUser);
-router.get("/:id", valid.validId, getUser);
+router.get("/:id", valid.validUserId, getUser);
 router.patch("/me", valid.validUser, updateProfile);
 router.patch("/me/avatar", valid.validAvatar, updateAvatar);
 

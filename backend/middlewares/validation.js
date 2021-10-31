@@ -46,8 +46,14 @@ module.exports.validCard = celebrate({
   }),
 });
 
-module.exports.validId = celebrate({
-  body: Joi.object().keys({
-    _id: Joi.string().alphanum().length(24).hex(),
+module.exports.validUserId = celebrate({
+  params: Joi.object().keys({
+    id: Joi.string().alphanum().length(24).hex(),
+  }),
+});
+
+module.exports.validCardId = celebrate({
+  params: Joi.object().keys({
+    cardId: Joi.string().alphanum().length(24).hex(),
   }),
 });
