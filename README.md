@@ -32,7 +32,7 @@ _[Ссылка на приложение](https://beagle-elgaeb.nomoredomains.ro
 
 ### Описание
 
-В данном учебном проекте объединены _[фронтенд](https://beagle-elgaeb.github.io/mesto-react-auth)_ и _[бэкенд](https://beagle-elgaeb.github.io/mesto-express)_.
+В данном учебном проекте объединены _[фронтенд](https://beagle-elgaeb.github.io/edu-mesto-react-auth)_ и _[бэкенд](https://beagle-elgaeb.github.io/edu-mesto-express)_.
 
 Получившееся web-приложение позволяет пользователю просматривать галерею фотографий тех мест, где побывали другие пользователи, а так же добавлять фотографии тех мест, где побывал он сам, оценивать фотографии лайками, удалять свои фотографии.
 
